@@ -1,0 +1,8 @@
+.App {
+    font-family: "EF_Diary";
+}
+
+@font-face {
+    font-family: EF_Diary;
+    src: url(/src/assets/fonts/EF_Diary.ttf);
+}
