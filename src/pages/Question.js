@@ -37,7 +37,6 @@ const Question = () => {
 
   const handleClick = (d, id) => {
     const sending = data.map((s) => {
-      console.log("a");
       return s.idx === id
         ? { id: s.idx, score: s.score + d, answer: s.answer }
         : s;
@@ -48,12 +47,18 @@ const Question = () => {
       //다음문제로 문제수 증가
       setQuestionNo(questionNo + 1);
     } else {
-      // console.log(data);
-      // console.log(sending);
-      // console.log(sending[9]);
-      // console.log(sending[9].score);
-      // console.log(c);
-      // console.log(c[0].score);
+      for (let i = 0; i < c.length; i++) {
+        if (c[i].score === 1) {
+          c[i].answer = "YES";
+        } else {
+          c[i].answer = "NO";
+        }
+      }
+      if (c[9].score === 1) {
+        c[9].answer = "남";
+      } else {
+        c[9].answer = "여";
+      }
       firebase_db.ref("user").push({
         name: names,
         question1: c[0].answer,
@@ -67,20 +72,18 @@ const Question = () => {
         question9: c[8].answer,
         성별: c[9].answer,
       });
-      console.log(data);
+      const b = c[9].answer;
+      console.log(b);
+      // navigate({
+      //   pathname: "/result",
+      //   search: `?${createSearchParams({
+      //     gender: b,
+      //   })}`,
+      // });
     }
   };
-  console.log(data);
-  const c = [...data];
-  const goResult = () => {
-    navigate("/result");
-    navigate({
-      pathname: "/result",
-      search: `?${createSearchParams({
-        names: names,
-      })}`,
-    });
-  };
+  // console.log(data);
+  const c = JSON.stringify(data);
   const handleClickBtn = (d, type) => {
     const newScore = totalScore.map((s) =>
       s.id === type ? { id: s.id, score: s.score + d } : s
@@ -134,17 +137,16 @@ const Question = () => {
       } else {
         setTotalType(exercise[2]);
       }
-      const a = [...totalType];
-      // console.log(a);
+      const realType = [...totalType].toString();
+      console.log(realType);
       setGender(exercise1[3]);
-      const b = [...gender];
       //결과페이지 이동
       navigate({
         pathname: "/result",
         search: `?${createSearchParams({
           names: names,
-          types: a,
-          gender: b,
+          types: realType,
+          datas: c,
         })}`,
       });
     }
@@ -184,20 +186,6 @@ const Question = () => {
           }}
         >
           {QuestionData[questionNo].answerB}
-        </Button>
-        <Button
-          style={{
-            width: "70%",
-            minHeight: "20vh",
-            fontSize: "15px",
-            margin: "10px 10px 10px 10px",
-          }}
-          type="button"
-          onClick={() => {
-            goResult();
-          }}
-        >
-          결과보러가기
         </Button>
       </ButtonGroup>
     </Wrapper>

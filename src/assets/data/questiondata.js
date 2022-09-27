@@ -69,4 +69,11 @@ export const QuestionData = [
     answerB: "여",
     type: "남여",
   },
+  {
+    id: 11,
+    title: "결과도출을 위해 한 번 더 눌러주세요",
+    answerA: "-",
+    answerB: "-",
+    type: "",
+  },
 ];

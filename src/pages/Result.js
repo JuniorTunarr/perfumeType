@@ -11,18 +11,23 @@ const Result = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const type = searchParams.get("types");
-  const gender = searchParams.get("gender");
   const name = searchParams.get("names");
+  const data = searchParams.get("datas");
+  const data1 = JSON.parse(data);
+  console.log(data1);
+  var data2 = data1[data1.length - 1];
+  if (data2.score === 1) {
+    data2.answer = "남";
+  } else {
+    data2.answer = "여";
+  }
+  console.log(data2);
   //최종적으로 도출한 결과 객체
   const [resultData, setResultData] = React.useState({});
-
   React.useEffect(() => {
     const result = ResultData.find((s) => s.type === type);
     setResultData(result);
-  }, [type]);
-
-  // console.log(resultData);
-
+  }, [resultData, type]);
   return (
     <Wrapper>
       <Header>향수 취향 테스트</Header>
@@ -30,31 +35,16 @@ const Result = () => {
       <Contents>
         <Title>결과 보기</Title>
         <LogoImage>
-          <img
-            alt="cat_img_result"
-            src={resultData.image}
-            width={300}
-            height={300}
-          />
+          <img src={resultData.image} width={300} height={300} />
         </LogoImage>
         <Desc>{name}님의 TYPE은 바로...!</Desc>
         <DescName>'{resultData.type}' Type 입니다!</DescName>
         <DescSub>{resultData.desc}</DescSub>
         <PerfumeImage>
-          {gender === "남" ? (
-            <img
-              alt="result"
-              src={resultData.image2}
-              width={600}
-              height={300}
-            />
+          {data2.answer === "남" ? (
+            <img src={resultData.image2} width={600} height={300} />
           ) : (
-            <img
-              alt="result"
-              src={resultData.image3}
-              width={600}
-              height={300}
-            />
+            <img src={resultData.image3} width={600} height={300} />
           )}
         </PerfumeImage>
         <ButtonGroup>
