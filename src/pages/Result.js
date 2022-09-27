@@ -14,14 +14,14 @@ const Result = () => {
   const name = searchParams.get("names");
   const data = searchParams.get("datas");
   const data1 = JSON.parse(data);
-  console.log(data1);
+  // console.log(data1);
   var data2 = data1[data1.length - 1];
   if (data2.score === 1) {
     data2.answer = "남";
   } else {
     data2.answer = "여";
   }
-  console.log(data2);
+  // console.log(data2);
   //최종적으로 도출한 결과 객체
   const [resultData, setResultData] = React.useState({});
   React.useEffect(() => {

@@ -73,7 +73,7 @@ const Question = () => {
         성별: c[9].answer,
       });
       const b = c[9].answer;
-      console.log(b);
+      // console.log(b);
       // navigate({
       //   pathname: "/result",
       //   search: `?${createSearchParams({
@@ -119,7 +119,7 @@ const Question = () => {
       const exercise1 = [genders.substring(3, 4)];
       // console.log(mbti);
       // console.log(exercise);
-      console.log(totalType);
+      // console.log(totalType);
       if (exercise.includes("A")) {
         setTotalType(exercise[0]);
       } else if (
@@ -138,7 +138,7 @@ const Question = () => {
         setTotalType(exercise[2]);
       }
       const realType = [...totalType].toString();
-      console.log(realType);
+      // console.log(realType);
       setGender(exercise1[3]);
       //결과페이지 이동
       navigate({
