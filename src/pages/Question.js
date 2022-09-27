@@ -72,17 +72,9 @@ const Question = () => {
         question9: c[8].answer,
         성별: c[9].answer,
       });
-      const b = c[9].answer;
-      // console.log(b);
-      // navigate({
-      //   pathname: "/result",
-      //   search: `?${createSearchParams({
-      //     gender: b,
-      //   })}`,
-      // });
     }
   };
-  // console.log(data);
+  console.log(data);
   const c = JSON.stringify(data);
   const handleClickBtn = (d, type) => {
     const newScore = totalScore.map((s) =>
