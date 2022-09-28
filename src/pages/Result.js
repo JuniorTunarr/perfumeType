@@ -76,24 +76,9 @@ const Result = () => {
     data11.answer = "NO";
   }
 
-  console.log(data1);
-
   //최종적으로 도출한 결과 객체
   const [resultData, setResultData] = React.useState({});
   React.useEffect(() => {
-    // firebase_db.ref("user").push({
-    //   name: name,
-    //   question1: data11.answer,
-    //   question2: data10.answer,
-    //   question3: data9.answer,
-    //   question4: data8.answer,
-    //   question5: data7.answer,
-    //   question6: data6.answer,
-    //   question7: data5.answer,
-    //   question8: data4.answer,
-    //   question9: data3.answer,
-    //   성별: data2.answer,
-    // });
     const result = ResultData.find((s) => s.type === type);
     setResultData(result);
   }, []);
@@ -104,7 +89,7 @@ const Result = () => {
       <Contents>
         <Title>결과 보기</Title>
         <LogoImage>
-          <img src={resultData.image} width={300} height={300} />
+          <img src={resultData.image} width={500} height={300} />
         </LogoImage>
         <Desc>{name}님의 TYPE은 바로...!</Desc>
         <DescName>'{resultData.type}' Type 입니다!</DescName>
