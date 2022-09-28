@@ -111,9 +111,9 @@ const Result = () => {
         <DescSub>{resultData.desc}</DescSub>
         <PerfumeImage>
           {data2.answer === "남" ? (
-            <img src={resultData.image2} width={600} height={300} />
+            <img src={resultData.image2} width={"100%"} height={300} />
           ) : (
-            <img src={resultData.image3} width={600} height={300} />
+            <img src={resultData.image3} width={"100%"} height={300} />
           )}
         </PerfumeImage>
         <ButtonGroup>
@@ -169,6 +169,7 @@ const Desc = styled.div`
 const DescName = styled.div`
   font-size: 20px;
   margin-bottom: 20px;
+  font-weight: bold;
 `;
 const DescSub = styled.div`
   font-size: 15px;

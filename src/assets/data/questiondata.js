@@ -71,7 +71,7 @@ export const QuestionData = [
   },
   {
     id: 11,
-    title: "결과도출을 위해 한 번 더 눌러주세요",
+    title: "결과확인하러가기",
     answerA: "-",
     answerB: "-",
     type: "",

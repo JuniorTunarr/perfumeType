@@ -3,12 +3,12 @@ import Button from "react-bootstrap/Button";
 const { Kakao } = window;
 
 const KakaoShareBtn = ({ data }) => {
-  const url = "https://zinkkis-test.netlify.app/";
+  const url = "https://aquamarine-concha-9fbd34.netlify.app/";
   const resultUrl = window.location.href;
 
   React.useEffect(() => {
     Kakao.cleanup();
-    Kakao.init("16a4fcd707b3c92fe86e9de778bf5301");
+    Kakao.init("13653bd5a632b30a3e9088d28b6b4484");
   }, []);
 
   const shareKakao = () => {
@@ -16,7 +16,7 @@ const KakaoShareBtn = ({ data }) => {
       objectType: "feed",
       content: {
         title: "perfumeType 테스트 결과",
-        description: `(${data.best})에게 가장 알맞은 집사님은?${data.name} 입니다!`,
+        description: `(${data.type})Type 에게 추천하는 향수는?`,
         imageUrl: url + data.image,
         link: {
           mobileWebUrl: resultUrl,
