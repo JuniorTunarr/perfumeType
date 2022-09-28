@@ -30,12 +30,14 @@ const Question = () => {
     { idx: 9, score: 0, answer: "" },
   ]);
   const [totalType, setTotalType] = React.useState();
-
+  const [resultType, setResultType] = React.useState();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const names = searchParams.get("names");
 
   const handleClick = (d, id) => {
+    const type = [];
+    var realType = [];
     const sending = data.map((s) => {
       return s.idx === id
         ? { id: s.idx, score: s.score + d, answer: s.answer }
@@ -59,8 +61,47 @@ const Question = () => {
       } else {
         c[9].answer = "여";
       }
+      if (
+        (c[0].score && c[3].score === 1) ||
+        (c[0].score && c[6].score === 1) ||
+        (c[3].score && c[6].score === 1)
+      ) {
+        type.push("B");
+      } else {
+        type.push("A");
+      }
+      if (
+        (c[1].score && c[4].score === 1) ||
+        (c[1].score && c[7].score === 1) ||
+        (c[4].score && c[7].score === 1)
+      ) {
+        type.push("C");
+      } else {
+        type.push("B");
+      }
+      if (
+        (c[2].score && c[5].score === 1) ||
+        (c[2].score && c[8].score === 1) ||
+        (c[5].score && c[8].score === 1)
+      ) {
+        type.push("D");
+      } else {
+        type.push("C");
+      }
+
+      if (type.includes("A")) {
+        realType = type[0];
+      } else if (type[0] === "B" && type[1] === "B" && type[2] === "C") {
+        realType = type[0];
+      } else if (type[0] === "B" && type[1] === "C" && type[2] === "C") {
+        realType = type[1];
+      } else {
+        realType = type[2];
+      }
+      console.log(realType);
       firebase_db.ref("user").push({
         name: names,
+        type: realType,
         question1: c[0].answer,
         question2: c[1].answer,
         question3: c[2].answer,
@@ -109,9 +150,6 @@ const Question = () => {
         mbti.substring(2, 3),
       ];
       const exercise1 = [genders.substring(3, 4)];
-      // console.log(mbti);
-      // console.log(exercise);
-      // console.log(totalType);
       if (exercise.includes("A")) {
         setTotalType(exercise[0]);
       } else if (
@@ -129,9 +167,11 @@ const Question = () => {
       } else {
         setTotalType(exercise[2]);
       }
-      const realType = [...totalType].toString();
-      // console.log(realType);
+      const realType = [...totalType];
+      console.log(realType);
       setGender(exercise1[3]);
+      setResultType(realType);
+
       //결과페이지 이동
       navigate({
         pathname: "/result",
