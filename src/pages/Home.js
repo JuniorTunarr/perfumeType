@@ -66,7 +66,7 @@ export default Home;
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
-  font-family: "EF_Diary";
+  font-family: "Courier";
   background: linear-gradient(to bottom, #9bc5f7 20%, #ddecff 80%);
 `;
 const Header = styled.div`
@@ -77,7 +77,7 @@ const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "EF_Diary";
+  font-family: "Courier";
   font-weight: 900;
 `;
 const Contents = styled.div`

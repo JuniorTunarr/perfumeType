@@ -107,6 +107,20 @@ const Result = () => {
           </Button>
           <KakaoShareBtn style={{ marginLeft: "10px" }} data={resultData} />
         </ButtonGroup>
+        <ButtonGroup1>
+          <Button
+            onClick={() =>
+              navigate(
+                window.open(
+                  "https://smartstore.naver.com/effortoflife",
+                  "_blank"
+                )
+              )
+            }
+          >
+            시향하러 가기
+          </Button>
+        </ButtonGroup1>
       </Contents>
     </Wrapper>
   );
@@ -117,7 +131,7 @@ export default Result;
 const Wrapper = styled.div`
   height: 100%;
   width: 100%;
-  font-family: "EF_Diary";
+  font-family: "Courier";
   background: linear-gradient(to bottom, #9bc5f7 20%, #ddecff 80%);
 `;
 const Header = styled.div`
@@ -126,7 +140,7 @@ const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "EF_Diary";
+  font-family: "Courier";
   font-weight: 900;
 `;
 const Contents = styled.div`
@@ -166,6 +180,11 @@ const DescSub = styled.div`
 `;
 const ButtonGroup = styled.div`
   margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+`;
+const ButtonGroup1 = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
