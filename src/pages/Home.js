@@ -30,7 +30,7 @@ const Home = () => {
   };
   return (
     <Wrapper>
-      <Header>향수 TYPE 테스트</Header>
+      <Header>향수 취향 테스트</Header>
 
       <Contents>
         <Title>나와 딱 맞는 향수 TYPE은?</Title>
@@ -73,7 +73,7 @@ const Header = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
   padding-top: 2rem;
-  font-size: 40pt;
+  font-size: 35pt;
   display: flex;
   justify-content: center;
   align-items: center;

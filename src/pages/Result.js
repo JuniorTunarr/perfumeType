@@ -112,7 +112,7 @@ const Result = () => {
             onClick={() =>
               navigate(
                 window.open(
-                  "https://smartstore.naver.com/effortoflife",
+                  "https://smartstore.naver.com/effortoflife/products/6998791298",
                   "_blank"
                 )
               )
