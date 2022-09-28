@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 const { Kakao } = window;
 
 const KakaoShareBtn = ({ data }) => {
-  const url = "https://aquamarine-concha-9fbd34.netlify.app/";
+  const url = "https://perfumetype.netlify.app";
   const resultUrl = window.location.href;
 
   React.useEffect(() => {

@@ -180,6 +180,7 @@ const DescSub = styled.div`
   padding-bottom: 5px;
 `;
 const ButtonGroup = styled.div`
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
