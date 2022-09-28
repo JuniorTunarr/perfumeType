@@ -89,7 +89,7 @@ const Result = () => {
       <Contents>
         <Title>결과 보기</Title>
         <LogoImage>
-          <img src={resultData.image} width={500} height={300} />
+          <img src={resultData.image} width={"100%"} height={300} />
         </LogoImage>
         <Desc>{name}님의 TYPE은 바로...!</Desc>
         <DescName>'{resultData.type}' Type 입니다!</DescName>
